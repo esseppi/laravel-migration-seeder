@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TrainTrip extends Model
 {
+    public $timestamps = false;
     //
 }

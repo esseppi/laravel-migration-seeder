@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\TrainTrip;
 use Illuminate\Http\Request;
+use App\TrainTrip;
 
 class ItemController extends Controller
 {
@@ -14,7 +14,6 @@ class ItemController extends Controller
      */
     public function index()
     {
-        TrainTrip::OrderBy('Departure-Time', 'DESC')->get();
         $trips = TrainTrip::all();
         $data = [
             'trips' => $trips
@@ -40,7 +39,10 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newTrip = new TrainTrip;
+        $newTrip->TrainProductor = $request->item["TrainProductor"];
+        $newTrip->save();
+        return $newTrip;
     }
 
     /**
