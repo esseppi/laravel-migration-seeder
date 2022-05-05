@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TrainTrip;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -13,7 +14,12 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        TrainTrip::OrderBy('Departure-Time', 'DESC')->get();
+        $trips = TrainTrip::all();
+        $data = [
+            'trips' => $trips
+        ];
+        return view('home', $data);
     }
 
     /**
