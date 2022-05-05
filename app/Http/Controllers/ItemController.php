@@ -41,6 +41,12 @@ class ItemController extends Controller
     {
         $newTrip = new TrainTrip;
         $newTrip->TrainProductor = $request->item["TrainProductor"];
+        $newTrip->DepartureStation = $request->item["DepartureStation"];
+        $newTrip->ArrivalStation = $request->item["ArrivalStation"];
+        $newTrip->TrainID = $request->item["TrainID"];
+        $newTrip->CarriagesNumber = $request->item["CarriagesNumber"];
+        $newTrip->Delay = $request->item["Delay"];
+        $newTrip->Deleted = $request->item["Deleted"];
         $newTrip->save();
         return $newTrip;
     }

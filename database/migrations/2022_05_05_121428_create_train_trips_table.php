@@ -15,15 +15,15 @@ class CreateTrainTripsTable extends Migration
     {
         Schema::create('train_trips', function (Blueprint $table) {
             $table->id();
-            $table->string('TrainProductor', 100)->nullable();
-            // $table->string('DepartureStation', 100)->nullable();
-            // $table->string('ArrivalStation', 100)->nullable();
-            // $table->dateTime('DepartureTime')->nullable();
-            // $table->dateTime('ArrivalTime')->nullable();
-            // $table->integer('Train-ID')->nullable();
-            // $table->integer('CarriagesNumber')->nullable();
-            // $table->time('Delay')->default(null);
-            // $table->boolean('Deleted')->default(false);
+            $table->string('TrainProductor', 100);
+            $table->string('DepartureStation')->nullable();
+            $table->string('ArrivalStation')->nullable();
+            $table->dateTime('DepartureTime')->nullable();
+            $table->dateTime('ArrivalTime')->nullable();
+            $table->integer('TrainID')->nullable();
+            $table->integer('CarriagesNumber')->nullable();
+            $table->time('Delay')->default(null)->nullable();
+            $table->boolean('Deleted')->default(false)->nullable();
         });
     }
 
