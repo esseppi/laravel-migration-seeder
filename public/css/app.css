@@ -1,0 +1,22 @@
+main .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  width: 80%;
+}
+main .card {
+  width: 150px;
+  margin: 0.25rem 0;
+  padding: 1rem;
+  border: 2px solid black;
+}
+main .card header {
+  text-align: center;
+  background-color: blue;
+  color: white;
+}
+main .card footer {
+  display: flex;
+  justify-content: center;
+}

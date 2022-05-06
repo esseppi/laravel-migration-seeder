@@ -18,8 +18,8 @@ class CreateTrainTripsTable extends Migration
             $table->string('TrainProductor', 100);
             $table->string('DepartureStation')->nullable();
             $table->string('ArrivalStation')->nullable();
-            $table->dateTime('DepartureTime')->nullable();
-            $table->dateTime('ArrivalTime')->nullable();
+            $table->time('DepartureTime')->nullable();
+            $table->time('ArrivalTime')->nullable();
             $table->integer('TrainID')->nullable();
             $table->integer('CarriagesNumber')->nullable();
             $table->time('Delay')->nullable();

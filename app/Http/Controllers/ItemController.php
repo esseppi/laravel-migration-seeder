@@ -14,11 +14,8 @@ class ItemController extends Controller
      */
     public function home()
     {
-        $trips = TrainTrip::all();
-        $data = [
-            'trips' => $trips
-        ];
-        return view('home', $data);
+        $trips = TrainTrip::simplePaginate(15);
+        return view('home', compact('trips'));
     }
     public function index()
     {

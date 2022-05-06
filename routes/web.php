@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'ItemController@home')->name('home');
-Route::get('/{id}', 'ItemController@read')->name('trip');
+
+Route::prefix('/traintrip')->group(function () {
+    Route::get('/{id}', 'ItemController@read')->name('traintrip');
+});
