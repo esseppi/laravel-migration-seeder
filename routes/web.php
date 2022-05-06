@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ItemController@index')->name('home');
+Route::get('/', 'ItemController@home')->name('home');
+Route::get('/{id}', 'ItemController@read')->name('trip');

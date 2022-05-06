@@ -22,8 +22,9 @@ class CreateTrainTripsTable extends Migration
             $table->dateTime('ArrivalTime')->nullable();
             $table->integer('TrainID')->nullable();
             $table->integer('CarriagesNumber')->nullable();
-            $table->time('Delay')->default(null)->nullable();
-            $table->boolean('Deleted')->default(false)->nullable();
+            $table->time('Delay')->nullable();
+            $table->boolean('Deleted')->nullable();
+            $table->timestamps();
         });
     }
 

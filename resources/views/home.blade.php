@@ -68,10 +68,10 @@
             @foreach ($trips as $trip)
             <div>
                 <div>{{$trip['id']}}</div>   
-                <div>{{$trip['Departure-Station']}}</div>   
-                <div>{{$trip['Arrival-Station']}}</div>   
-                <div>{{$trip['Departure-Time']}}</div>   
-                <div>{{$trip['Arrival-Time']}}</div>   
+                <div>{{$trip['DepartureStation']}}</div>   
+                <div>{{$trip['ArrivalStation']}}</div>   
+                <div>{{$trip['DepartureTime']}}</div>   
+                <div>{{$trip['ArrivalTime']}}</div>   
             </div>
             @endforeach
         </div>

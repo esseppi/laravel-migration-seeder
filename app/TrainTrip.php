@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class TrainTrip extends Model
 {
-    public $timestamps = false;
-    //
+    protected $fillable = [
+        'TrainProductor',
+        'DepartureStation',
+        'ArrivalStation',
+        'ArrivalTime',
+        'DepartureTime',
+        'TrainID',
+        'CarriagesNumber',
+        'Delay',
+        'Deleted',
+    ];
 }

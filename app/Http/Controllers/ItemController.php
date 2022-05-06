@@ -12,13 +12,25 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
         $trips = TrainTrip::all();
         $data = [
             'trips' => $trips
         ];
         return view('home', $data);
+    }
+    public function index()
+    {
+        return TrainTrip::all();
+    }
+    public function read($id)
+    {
+        $existingItem = TrainTrip::find($id);
+        if ($existingItem) {
+            return $existingItem;
+        }
+        return 'item not found';
     }
 
     /**
@@ -44,6 +56,8 @@ class ItemController extends Controller
         $newTrip->DepartureStation = $request->item["DepartureStation"];
         $newTrip->ArrivalStation = $request->item["ArrivalStation"];
         $newTrip->TrainID = $request->item["TrainID"];
+        $newTrip->DepartureTime = $request->item["DepartureTime"];
+        $newTrip->ArrivalTime = $request->item["ArrivalTime"];
         $newTrip->CarriagesNumber = $request->item["CarriagesNumber"];
         $newTrip->Delay = $request->item["Delay"];
         $newTrip->Deleted = $request->item["Deleted"];
