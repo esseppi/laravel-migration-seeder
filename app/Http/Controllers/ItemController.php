@@ -12,14 +12,18 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function home(Request $request)
     {
-        $trips = TrainTrip::simplePaginate(15);
+        $trips = TrainTrip::all();
         return view('home', compact('trips'));
     }
-    public function index()
+    public function index(Request $request)
     {
-        return TrainTrip::all();
+        $search = $request->search;
+        $trips = TrainTrip::when($search, function ($query, $search) {
+            // return $query->where('TrainProductor', "like", "%{$search}%");
+        });
+        return view('home', compact('trips'));
     }
     public function read($id)
     {
@@ -105,5 +109,13 @@ class ItemController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function search(Request $request)
+    {
+        $orders = TrainTrip::search('Star Trek')->where('user_id', 1)->get();
+        $trips = TrainTrip::search($request->search)->get();
+        return view('search', $trips);
     }
 }
