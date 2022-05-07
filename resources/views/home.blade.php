@@ -2,6 +2,10 @@
 @section('css', './css/app.css')
 @section('main')
 <main>
+    <form action="?">
+        <input type="text" name="search" placeholder="Search" value="{{ request()->search }}">
+        <button type="submit">go</button>
+    </form>
     <div class="container">
         @foreach ($trips as $trip)
         <div class="card">
@@ -22,5 +26,6 @@
         </div>
         @endforeach
     </div>  
+    {{-- {{ $trips->links() }} --}}
 </main>
 @endsection

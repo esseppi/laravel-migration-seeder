@@ -22,3 +22,13 @@ main{
         }
     }
 }
+// public function search(Request $request)
+// {
+//     $search = $request->search;
+//     $trips = TrainTrip::when($search, function ($query, $search) {
+//         return $query->where('TrainProductor', "like", "%{$search}%");
+//     });
+//     return view('home', [
+//         'trips' => $trips,
+//     ]);
+// }
