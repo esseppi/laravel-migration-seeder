@@ -2,8 +2,8 @@
 @section('css', './css/app.css')
 @section('main')
 <main>
-    <form action="?">
-        <input type="text" name="search" placeholder="Search" value="{{ request()->search }}">
+    <form action="{{ url('/search')}}" type="get">
+        <input type="text" name="query" placeholder="Search">
         <button type="submit">go</button>
     </form>
     <div class="container">

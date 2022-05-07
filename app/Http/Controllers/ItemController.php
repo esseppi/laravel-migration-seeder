@@ -17,14 +17,15 @@ class ItemController extends Controller
         $trips = TrainTrip::all();
         return view('home', compact('trips'));
     }
-    public function index(Request $request)
+
+    public function search()
     {
-        $search = $request->search;
-        $trips = TrainTrip::when($search, function ($query, $search) {
-            // return $query->where('TrainProductor', "like", "%{$search}%");
-        });
+        $search_text = $_GET['query'];
+        $trips = TrainTrip::where('TrainProductor', 'LIKE', '%' . $search_text . '%')->get();
         return view('home', compact('trips'));
     }
+
+
     public function read($id)
     {
         $existingItem = TrainTrip::find($id);
@@ -109,13 +110,5 @@ class ItemController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-
-    public function search(Request $request)
-    {
-        $orders = TrainTrip::search('Star Trek')->where('user_id', 1)->get();
-        $trips = TrainTrip::search($request->search)->get();
-        return view('search', $trips);
     }
 }
