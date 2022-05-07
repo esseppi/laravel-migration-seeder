@@ -12,6 +12,11 @@ main{
         padding: 1rem;
         border: 2px solid black;
         header{
+            .dlt{
+                background-color: red;
+            }
+            display: flex;
+            justify-content: space-between;
             text-align: center;
             background-color: blue;
             color: white;
@@ -22,13 +27,4 @@ main{
         }
     }
 }
-// public function search(Request $request)
-// {
-//     $search = $request->search;
-//     $trips = TrainTrip::when($search, function ($query, $search) {
-//         return $query->where('TrainProductor', "like", "%{$search}%");
-//     });
-//     return view('home', [
-//         'trips' => $trips,
-//     ]);
-// }
+

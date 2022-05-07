@@ -19,3 +19,4 @@ Route::get('/search', 'ItemController@search')->name('home');
 Route::prefix('/traintrip')->group(function () {
     Route::get('/{id}', 'ItemController@read')->name('traintrip');
 });
+Route::delete('delete/{id}', 'ItemController@delete')->name('delete');

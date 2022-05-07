@@ -3,7 +3,7 @@
 @section('main')
 <main>
     <form action="{{ url('/search')}}" type="get">
-        <input type="text" name="query" placeholder="Search">
+        <input type="text" name="query" placeholder="Search Destination">
         <button type="submit">go</button>
     </form>
     <div class="container">
@@ -11,6 +11,12 @@
         <div class="card">
             <header>
                 <div>{{$trip['id']}}</div> 
+
+                <form action="{{route('delete', ['id' => $trip['id']])}}" method="post">
+                    {{method_field('DELETE')}}
+                    {{csrf_field()}}
+                    <button type="submit" class="dlt">dlt</button>
+                </form>
             </header>
             <div>
                 <span>Partenza: {{$trip['DepartureTime']}}</span>

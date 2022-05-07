@@ -21,7 +21,7 @@ class ItemController extends Controller
     public function search()
     {
         $search_text = $_GET['query'];
-        $trips = TrainTrip::where('TrainProductor', 'LIKE', '%' . $search_text . '%')->get();
+        $trips = TrainTrip::where('ArrivalStation', 'LIKE', '%' . $search_text . '%')->get();
         return view('home', compact('trips'));
     }
 
@@ -31,6 +31,16 @@ class ItemController extends Controller
         $existingItem = TrainTrip::find($id);
         if ($existingItem) {
             return $existingItem;
+        }
+        return 'item not found';
+    }
+
+    public function delete($id)
+    {
+        $existingItem = TrainTrip::find($id);
+        if ($existingItem) {
+            $existingItem->delete();
+            return redirect()->back();
         }
         return 'item not found';
     }
@@ -97,17 +107,6 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }

@@ -12,9 +12,14 @@ main .card {
   border: 2px solid black;
 }
 main .card header {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   background-color: blue;
   color: white;
+}
+main .card header .dlt {
+  background-color: red;
 }
 main .card footer {
   display: flex;
